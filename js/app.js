@@ -1,45 +1,41 @@
-var tel = document.querySelector("#tel");
+var regexTel = /^[0-9]+$/;
+var regexMail = /^([a-zA-Z0-9_\.\-\+])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,3})+$/;
 
-tel.addEventListener('keypress', function (e) {
+//Vérification du numéro de téléphone
+$('#tel').keyup(function(){
+	if(!regexTel.test($('#tel').val()))
+		$('#error').html("<p style=\"color:red\"> Vous ne devez saisir que des chiffres</p>");
+	else 
+		$('#error').html("");
+});
 
-	if( isNaN(tel.value)){
-		document.getElementById('error').innerHTML = '<p style="color:red"> Vous ne devez saisir que des chiffres</p>'
-		e.preventDefault();
-	}else{
-		document.getElementById('error').innerHTML = ''
-
-	}
-})
 
 function verification() {
-
-	if (document.formul.nom.value == "") {
-		alert("Ce champs nom ne doit pas vide");
-
-		document.formul.nom.focus();
-		document.formul.nom.style.backgroundColor = "red";
-
+	//Vérification du nom
+	if ($('#nom').val() == "") {
+		alert("Le nom est obligatoire");
+		$('#nom').focus();
+		$('#nom').css("backgroundColor","#fcc8c2");
 		return false;
 	}
+	else $('#nom').css("backgroundColor","white");
 
-	if (document.formul.prenom.value == "") {
-		alert("Ce champs prénomne doit pas vide");
-
-		document.formul.prenom.focus();
-		document.formul.prenom.style.backgroundColor = "red";
-
+	//Vérification du prénom
+	if ($('#prenom').val() == "") {
+		alert("Le prénom est obligatoire");
+		$('#prenom').focus();
+		$('#prenom').css("backgroundColor","#fcc8c2");
 		return false;
 	}
+	else $('#prenom').css("backgroundColor","white");
 
-	var regex = /^([a-zA-Z0-9_\.\-\+])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,3})+$/;
-
-	if (!regex.test(document.getElementById('email').value)) {
-		alert("Ce champs Email ne doit pas vide");
-
-		document.formul.email.focus();
-		document.formul.email.style.backgroundColor = "red";
-
+	//Vérification de l'adresse email
+	if (!regexMail.test($('#email').val())) {
+		alert("Adresse email non valide");
+		$('#email').focus();
+		$('#email').css("backgroundColor","#fcc8c2");
 		return false;
 	}
+	else $('#email').css("backgroundColor","white");
 
 }
