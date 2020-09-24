@@ -24,11 +24,7 @@
 <script>
     window.location.href = 'http://localhost:3000/location.html?age=25#voiture/peugeuot';
     document.getElementById("age").innerHTML = window.location.search.split("=")[1];
-    document.getElementById("voiture").innerHTML = window.location.href.split("/")[4];
-    
-    console.log(window.location.href.split("/")[4]);
-    console.log();
-    
+    document.getElementById("voiture").innerHTML = window.location.hash.split("/")[1];
 </script>
 </html>
 
