@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+</head>
+
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>Age</th>
+                <th>Voiture</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td id=age><!-- 25 --></td>
+                <td id=voiture><!-- peugeot --></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+<script>
+    window.location.href = 'http://localhost:3000/location.html?age=25#voiture/peugeuot';
+    document.getElementById("age").innerHTML = window.location.search.split("=")[1];
+    document.getElementById("voiture").innerHTML = window.location.href.split("/")[4];
+    
+    console.log(window.location.href.split("/")[4]);
+    console.log();
+    
+</script>
+</html>
+
+
+<style>
+    table,
+td {
+    border: 1px solid #333;
+}
+
+thead,
+tfoot {
+    background-color: #333;
+    color: #fff;
+}
+</style>
